@@ -1,0 +1,56 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+#gameCanvas {
+    display: block;
+    background-color: #000;
+}
+
+.menu {
+    position: absolute;
+    top: 300px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #000;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#menuPlayer1 {
+    left: 10px;
+}
+
+#menuPlayer2 {
+    right: 10px;
+}
+
+.player-info {
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+	flex-wrap: wrap;
+	
+}
+
+button {
+    padding: 10px;
+    flex: 1;
+    margin: 0 5px;
+	min-width: 80px;
+}
+
+.end-turn-button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #6ca;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

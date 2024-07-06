@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Isométrico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <div id="menuPlayer1" class="menu">
+        <h3>Jugador 1</h3>
+        <div class="player-info">
+            <p>Nombre: <span class="player-name">Jugador 1</span></p>
+            <p>Salud: <span class="player-health">100</span></p>
+            <p>Habilidades:</p>
+        </div>
+        <div class="button-container">
+            <button>Habilidad 1</button>
+            <button>Habilidad 2</button>
+            <button>Habilidad 3</button>
+        </div>
+		<button class="end-turn-button" data-player-id=0>Terminar Turno</button>
+    </div>
+    <div id="menuPlayer2" class="menu">
+        <h3>Jugador 2</h3>
+        <div class="player-info">
+            <p>Nombre: <span class="player-name">Jugador 2</span></p>
+            <p>Salud: <span class="player-health">100</span></p>
+            <p>Habilidades:</p>
+        </div>
+        <div class="button-container">
+            <button>Habilidad 1</button>
+            <button>Habilidad 2</button>
+            <button>Habilidad 3</button>
+        </div>
+		<button class="end-turn-button" data-player-id=1>Terminar Turno</button>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
