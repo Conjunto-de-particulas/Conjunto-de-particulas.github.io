@@ -228,12 +228,16 @@ window.onload = function() {
 		console.log('cW: ' + pMouseMap[0] + ' rW: ' + pMouseMap[1]);
 	});
 
+	function bfs(){
+
+
+	}
+
 	function move(x, y){
 		if(Math.abs(x - players[currentPlayerIndex].x) + Math.abs(y - players[currentPlayerIndex].y)
 			 <= players[currentPlayerIndex].actMov ){
-				
-		}
 
+		}
 	}
 
 	canvas.addEventListener('click', function(event){
