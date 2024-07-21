@@ -31,7 +31,7 @@ window.onload = function () {
 
 	const tileSize = 40;
 	const spriteSize = 40; // Tamaño del sprite
-	const mapOrigin = [9, 1]
+	const mapOrigin = [0, 0]
 
 	bfs(players[currentPlayerIndex])
 
@@ -47,7 +47,7 @@ window.onload = function () {
 		let delta = 0;
 		if (Math.floor(Math.random() * 1000) > 999) { delta = Math.floor(Math.random() * 4); }
 
-		const isoX = (x - y) * size + canvas.width / 2 - size;
+		const isoX = (x - y) * size + canvas.width / 2;
 		const isoY = (x + y) * size / 2 + size * 2 + delta;
 		/*context.beginPath();
 		context.moveTo(isoX, isoY);
@@ -73,7 +73,7 @@ window.onload = function () {
 	}
 
 	function drawPlayer(player, size) {
-		const isoX = (player.x - player.y) * size + canvas.width / 2 - size; //- (map[0].length * size) / 2
+		const isoX = (player.x - player.y) * size + canvas.width / 2; //- (map[0].length * size) / 2
 		const isoY = (player.x + player.y) * size / 2 + size * 2;
 		context.drawImage(player.sprite, (isoX - spriteSize / 2), (isoY - spriteSize / 2) - spriteSize, spriteSize, spriteSize);
 	}
@@ -185,16 +185,23 @@ window.onload = function () {
 
 		console.log('x: ' + mouseX + ' y: ' + mouseY);
 
-		let p = [Math.floor(mouseX / (tileSize * 2)), Math.floor(mouseY / tileSize)]
+
+		deltaX = canvas.width / 2 - tileSize;
+		deltaY = tileSize;
+
+		mouseX -= deltaX;
+		mouseY -= deltaY;
+
+		let p = [Math.floor(mouseX/ (tileSize * 2)), Math.floor(mouseY / tileSize)]
 		let p2 = [mouseX % tileSize, mouseY % tileSize]
 		let pMouseMap = [(p[1] - mapOrigin[1]) + (p[0] - mapOrigin[0]),
 		(p[1] - mapOrigin[1]) - (p[0] - mapOrigin[0])]
 
 		/*context.beginPath();
-		context.moveTo(p[0]*tileSize*2, p[1]*tileSize);
-		context.lineTo(p[0]*tileSize*2 + tileSize * 2 , p[1]*tileSize);
-		context.lineTo(p[0]*tileSize*2 + tileSize * 2 , p[1]*tileSize + tileSize);
-		context.lineTo(p[0]*tileSize*2, p[1]*tileSize + tileSize);
+		context.moveTo(p[0]*tileSize*2 + deltaX , p[1]*tileSize + deltaY);
+		context.lineTo(p[0]*tileSize*2 + tileSize * 2 + deltaX , p[1]*tileSize + deltaY);
+		context.lineTo(p[0]*tileSize*2 + tileSize * 2 + deltaX , p[1]*tileSize + tileSize + deltaY);
+		context.lineTo(p[0]*tileSize*2 + deltaX , p[1]*tileSize + tileSize + deltaY);
 		context.closePath();
 		context.strokeStyle = '#8bb9cc';
 		context.stroke();*/
@@ -303,7 +310,7 @@ window.onload = function () {
 			coor[0] = parseInt(coor[0]);
 			coor[1] = parseInt(coor[1]);
 
-			const isoX = (coor[0] - coor[1]) * tileSize + canvas.width / 2 - tileSize;
+			const isoX = (coor[0] - coor[1]) * tileSize + canvas.width / 2;
 			const isoY = (coor[0] + coor[1]) * tileSize / 2 + tileSize * 2;
 			context.beginPath();
 			context.moveTo(isoX, isoY);
