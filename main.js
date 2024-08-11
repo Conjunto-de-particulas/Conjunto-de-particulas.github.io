@@ -49,6 +49,7 @@ window.onload = function () {
 
 		const isoX = (x - y) * size + canvas.width / 2;
 		const isoY = (x + y) * size / 2 + size * 2 + delta;
+		
 		/*context.beginPath();
 		context.moveTo(isoX, isoY);
 		context.lineTo(isoX + size, isoY - size / 2);
@@ -112,57 +113,7 @@ window.onload = function () {
 		});
 	});
 
-	document.addEventListener('keydown', function (event) {
-		const player = players[currentPlayerIndex];
-		let newX = player.x;
-		let newY = player.y;
-		let change = false;
-
-		switch (event.key) {
-			case player.keyUp:
-				if (player.actMov > 0) {
-					newY--;
-					player.actMov--;
-					change = true;
-				}
-				break;
-			case player.keyDown:
-				if (player.actMov > 0) {
-					newY++;
-					player.actMov--;
-					change = true;
-				}
-				break;
-			case player.keyLeft:
-				if (player.actMov > 0) {
-					newX--;
-					player.actMov--;
-					change = true;
-				}
-				break;
-			case player.keyRight:
-				if (player.actMov > 0) {
-					newX++;
-					player.actMov--;
-					change = true;
-				}
-				break;
-		}
-
-		// Comprobar que el nuevo movimiento esté dentro de los límites del mapa
-		if (newX >= 0 && newX < map[0].length && newY >= 0 && newY < map.length) {
-			player.x = newX;
-			player.y = newY;
-		} else {
-			change = false;
-			player.actMov++;
-		}
-		if (change && (player.actMov >= 0)) {
-			//drawGame();//Puede omitirse
-		}
-
-	});
-
+	
 	function areaTriangle(x1, y1, x2, y2, x3, y3) {
 		return Math.abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0;
 	}
